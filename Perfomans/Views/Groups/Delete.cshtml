@@ -1,0 +1,27 @@
+﻿@model Perfomans.Models.Groups
+
+@{
+    ViewData["Title"] = "Delete group -";
+}
+
+<h3>Are you sure about that?</h3>
+<table class="table_main">
+    <caption>Delete group</caption>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Name)
+        </th>
+    </tr>
+</table>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id" />
+    <input type="hidden" id="DepId" name="DepId" value="@ViewBag.DepId" />
+    <input type="submit" value="Delete" class="btn_danger" />
+</form>
+<div>
+    <a class="btn" asp-action="Index">Back</a>
+</div>
+

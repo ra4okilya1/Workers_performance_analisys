@@ -1,0 +1,35 @@
+﻿@model Perfomans.Models.DepartmentParameters
+
+@{
+    ViewData["Title"] = "Delete parameter -";
+}
+
+<h3>Are you sure about that?</h3>
+<table class="table_main">
+    <caption>Delete parameter</caption>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.parameter)
+        </th>
+        <th>
+            @ViewBag.ParameterName
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mark)
+        </th>
+    
+        <th>
+            @Html.DisplayFor(model => model.mark)
+        </th>
+    </tr>
+</table>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="DepartmentId" />
+    <input type="hidden" asp-for="ParameterId" />
+    <input type="submit" value="Delete" class="btn_danger" /> 
+</form>
+<div>
+    <a class="btn" asp-action="DepartmentPage" asp-controller="Departments" asp-route-id="@Model.DepartmentId">Back</a>
+</div>

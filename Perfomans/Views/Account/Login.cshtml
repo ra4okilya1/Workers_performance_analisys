@@ -1,0 +1,25 @@
+﻿@model Perfomans.Models.LoginModel
+@{
+    ViewData["Title"] = "Authorization -";
+}
+<body>
+    <div class="container">
+        <section id="content">
+            <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="form_auth">
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <h1>Login Form</h1>
+                <label>Login/Email</label>
+                <div>
+                    <input asp-for="Email" type="text" placeholder="Email">
+                </div>
+                <label>Password</label>
+                <div>
+                    <input asp-for="Password" type="password">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn_log btn_next"><span>Enter</span></button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>

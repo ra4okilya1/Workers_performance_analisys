@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] EPA </title>
+    <link rel="icon" type="image/ico" href="/img/OfficeEmployee.ico" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
+    </script>
+    <style>
+        a {
+            color: #54354F;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container_head">
+
+                <div class="navbar-collapse ">
+                    <div>
+                        <img src="~/img/OfficeEmployee.ico" class="img" />
+                    </div>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <ul style="display:inline; color: white;" class="nav navbar-nav">
+                                <li style="display:inline; color: white">
+                                    <a style="display:inline; color: white; padding-right: 2em" asp-area="" asp-controller="Parameters" asp-action="Index">Parameters</a>
+                                </li>
+                                <li style="display:inline; color: white">
+                                    <a style="display:inline; color: white;padding-right: 2em" asp-area="" asp-controller="Departments" asp-action="Index">Departments</a>
+                                </li>
+                                <li style="display:inline; color: white">
+                                    <a style="display:inline; color: white;padding-right: 2em" asp-area="" asp-controller="Users" asp-action="Index">Workers</a>
+                                </li>
+                                <li style="display:inline; color: white">
+                                    <a style="display:inline; color: white" asp-area="" asp-controller="Chart" asp-action="Index">Departments structure</a>
+                                </li>
+                            </ul>
+                            <ul style="display:inline; color: white" class="nav navbar-nav">
+                                <li style="display:inline">
+                                    Welcome, @User.Identity.Name
+                                </li>
+                                <li class="nav-item" style="display:inline">
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Users/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button class="btn" type="submit">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        }
+                    }
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="main">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

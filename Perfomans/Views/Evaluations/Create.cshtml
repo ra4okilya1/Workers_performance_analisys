@@ -1,0 +1,51 @@
+﻿@model Perfomans.Models.Evaluations
+
+@{
+    ViewData["Title"] = "Create evaluation -";
+}
+
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <table class="table_main">
+        <caption>Create parameter</caption>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="ParameterId" class="control-label"></label>
+                    <select asp-for="ParameterId" class="form-control" asp-items="ViewBag.ParameterId"></select>
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    <label asp-for="Mark" class="control-label"></label>
+                    <input asp-for="Mark" class="form-control" />
+                    <span asp-validation-for="Mark" class="text-danger"></span>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn_create" />
+    </div>
+</form>
+
+<div>
+    <a class="btn" asp-action="Index">Back</a>
+</div>
+

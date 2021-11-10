@@ -1,0 +1,72 @@
+﻿@model Perfomans.Models.Parameters
+
+@{
+    ViewData["Title"] = "Parameter details -";
+}
+
+<h3>Are you sure about that?</h3>
+<table class="table_main">
+    <caption>Delete user</caption>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Name)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Coefficient)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Coefficient)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_1_description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Mark_1_description)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_2_description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Mark_2_description)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_3_description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Mark_3_description)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_4_description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Mark_4_description)
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_5_description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Mark_5_description)
+        </th>
+    </tr>
+</table>
+<div>
+    <a class="btn_edit" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+</div>
+<div>
+    <a class="btn" asp-action="Index">Back</a>
+</div>

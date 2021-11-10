@@ -1,0 +1,33 @@
+﻿@model Perfomans.Models.Departments
+
+@{
+    ViewData["Title"] = "Edit department -";
+}
+
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <table class="table_main">
+        <caption>Edit departament</caption>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </th>
+        </tr>
+    </table>    
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn_create" />
+    </div>
+</form>
+<div>
+    <a class="btn" asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

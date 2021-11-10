@@ -1,0 +1,95 @@
+﻿@model Perfomans.Models.Departments
+@using Perfomans.Models
+@{
+    ViewData["Title"] = "Department Page -";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#Chatbutton").click(function () {
+            $("#Chatbutton").addClass('active');
+            $("#Newsbutton").removeClass('active');
+            $("#Groupbutton").removeClass('active');
+            $("#groups").css("display", "none");
+            $("#news").css("display", "none");
+            $("#chat").css("display", "block");
+        })
+        $("#Newsbutton").click(function () {
+            $("#Newsbutton").addClass('active');
+            $("#Chatbutton").removeClass('active');
+            $("#Groupbutton").removeClass('active');
+            $("#groups").css("display", "none");
+            $("#chat").css("display", "none");
+            $("#news").css("display", "block");
+        })
+        $("#Groupbutton").click(function () {
+            $("#Groupbutton").addClass('active');
+            $("#Chatbutton").removeClass('active');
+            $("#Newsbutton").removeClass('active');
+            $("#chat").css("display", "none");
+            $("#news").css("display", "none");
+            $("#groups").css("display", "block");
+        })
+    });
+</script>
+<body>
+
+    <div style="margin-top: 2em" class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="ui placeholder">
+                            <div class="ui header">
+                                <div class="content">
+                                    <h2 class="header">
+                                        @Model.Name
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub content">
+                        @foreach (User u in Model.User)
+                        {
+                            if ((u.DepartmentId == Model.Id) & (u.RoleId == 4))
+                            {
+                                <h3 class="ui center aligned sub header">Head of department : @u.Name</h3>
+                            }
+                        }
+                    </div>
+                    <div style="margin-left:5%" class="extra content">
+                        <div class="ui  buttons">
+                            <a class="btn_edit" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                            <a class="btn_danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a> 
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a class="btn" asp-action="Index">Back</a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="ui segment">
+                    <br />
+                    <div class="ui secondary pointing menu">
+                        <a id="Chatbutton" class="btn">
+                            Workers
+                        </a>
+                        <a id="Newsbutton" class=" btn">
+                            Parameters
+                        </a>
+
+                        <a id="Groupbutton" class="btn">
+                            Groups
+                        </a>
+                    </div>
+                    <div id="chat"><partial name="EmployeePartial.cshtml" /></div>
+                    <div id="news" style="display: none"><partial name="ParametersPartial.cshtml" /></div>
+                    <div id="groups" style="display: none"><partial name="GroupsPartial.cshtml" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

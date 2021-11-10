@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Perfomans.Models.Parameters>
+
+@{
+    ViewData["Title"] = "Parameters -";
+}
+
+<div style="margin-top: 3em;">
+        <div class="col-sm-4">
+            <a style="float:right" asp-action="Create" class="btn_create">Create New</a>
+        </div>
+</div>
+<table class="table_main">
+    <caption>Parameters</caption>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coefficient)
+            </th>
+            <th>
+                1
+            </th>
+            <th>
+                2
+            </th>
+            <th>
+                3
+            </th>
+            <th>
+                4
+            </th>
+            <th>
+                5
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coefficient)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark_1_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark_2_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark_3_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark_4_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark_5_description)
+                </td>
+                <td>
+                    <a class="btn_edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn_info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn_danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

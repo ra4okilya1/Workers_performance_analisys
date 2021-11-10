@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Perfomans.Models.Departments>
+@{
+    ViewData["Title"] = "Select department -";
+}
+<body>
+<div style="" margin-top: 2em;">
+    <a class="btn_create" style="float:right" asp-action="Create">Create New</a>
+</div>
+
+<div style="margin-top: 2em;" class="centered ui link cards">
+    @foreach (var item in Model)
+    {
+        <div class="btn">
+            <a asp-action="DepartmentPage" asp-route-id="@item.Id">
+                <div class="content">
+                    <div class="ui placeholder">
+                        <h2 class="ui centered header">
+                            @item.Name
+                        </h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+</body>

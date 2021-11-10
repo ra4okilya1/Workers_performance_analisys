@@ -1,0 +1,34 @@
+﻿@model Perfomans.Models.DepartmentParameters
+
+@{
+    ViewData["Title"] = "Create parameter -";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="DepartmentId" value="@ViewBag.DepId" />
+    <table class="table_main">
+        <caption>Create parameter</caption>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="ParameterId" class="control-label"></label>
+                    <select asp-for="ParameterId" class="form-control" asp-items="ViewBag.ParameterId"></select>
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    <label asp-for="mark" class="control-label"></label>
+                    <input asp-for="mark" class="form-control" />
+                    <span asp-validation-for="mark" class="text-danger"></span>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn_create" />
+    </div>
+</form>
+
+
+

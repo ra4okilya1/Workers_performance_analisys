@@ -1,0 +1,35 @@
+﻿@model Perfomans.Models.DepartmentParameters
+
+@{
+    ViewData["Title"] = "Edit parameter -";
+}
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="DepartmentId" />
+    <table class="table_main">
+    <caption>Edit parameter</caption>
+    <tr>
+        <th>
+            <div class="form-group">
+                <label asp-for="ParameterId" class="control-label"></label>
+                <select asp-for="ParameterId" class="form-control" asp-items="ViewBag.ParameterId"></select>
+            </div>
+        </th>
+        <th>
+            <div class="form-group">
+                <label asp-for="mark" class="control-label"></label>
+                <input asp-for="mark" class="form-control" />
+                <span asp-validation-for="mark" class="text-danger"></span>
+            </div>
+        </th>
+    </tr>
+    </table>
+     <div class="form-group">
+          <input type="submit" value="Save" class="btn_create" />
+     </div>
+</form>
+<div>
+    <a class="btn" asp-action="DepartmentPage" asp-controller="Departments" asp-route-id="@Model.DepartmentId">Back</a>
+</div>
+

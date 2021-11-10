@@ -1,0 +1,31 @@
+﻿@model Perfomans.Models.Groups
+@{
+    ViewData["Title"] = "Create group -";
+}
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <table class="table_main">
+        <caption>Create group</caption>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <br>
+                    <label>Id departament</label>
+                    <br>
+                    <input id="DepId" class="form-control" name="DepId" value="@ViewBag.DepId" />
+                    <br>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn_create" />
+    </div>
+</form>
+<div>
+    <a class="btn" asp-action="Index">Back</a>
+</div>
+

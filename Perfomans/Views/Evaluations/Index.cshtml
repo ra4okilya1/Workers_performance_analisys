@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Perfomans.Models.Evaluations>
+
+@{
+    ViewData["Title"] = "Evaluations -";
+}
+
+<div style="margin-top: 3em;">
+    <div class="col-sm-4">
+        <a style="float:right" asp-action="Create" class="btn_create">Create New</a>
+    </div>
+</div>
+<table class="table_main">
+    <caption>Evaluations</caption>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessor)
+            </th>
+            <th>
+                Employee
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mark)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Assessor.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parameter.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mark)
+                    </td>
+                    <td>
+                        <a class="btn_danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

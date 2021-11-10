@@ -1,0 +1,31 @@
+﻿@model Perfomans.Models.ParametersGroup
+
+@{
+    ViewData["Title"] = "Edit parameter -";
+}
+
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="GroupId" />
+    <input type="hidden" asp-for="ParameterId" />
+    <table class="table_main">
+        <caption>Edit parameter</caption>
+        <tr>
+            <th>
+                <div class="form-group">
+                    <label asp-for="Mark" class="control-label"></label>
+                    <input asp-for="Mark" class="form-control" />
+                    <span asp-validation-for="Mark" class="text-danger"></span>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="form-group">
+         <input type="submit" value="Save" class="btn_create" />
+     </div>
+</form>
+<div>
+     <a class="btn" asp-action="Index">Back</a>
+</div>
+

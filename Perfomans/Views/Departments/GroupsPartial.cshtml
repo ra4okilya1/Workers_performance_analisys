@@ -1,0 +1,73 @@
+﻿@model Perfomans.Models.Departments
+@using Perfomans.Models
+
+@{
+    ViewData["Title"] = "Groups";
+}
+
+<table class="table_main">
+    <caption>Groups</caption>
+    <thead>
+        <tr>
+            <th>Group</th>
+            <th>Parameter</th>
+            <th>Actions</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Groups groups in Model.Groups)
+        {
+            if (groups.DepartmentId == Model.Id)
+            {
+                <tr>
+                    <td>
+                        @groups.Name
+                    </td>
+                    <td>
+                        @foreach (ParametersGroup parametersGroup in ViewBag.ParametersGroups)
+                        {
+                            @if (parametersGroup.GroupId == groups.id)
+                            {
+                                @parametersGroup.Parameters.Name<span>-</span>
+                                @parametersGroup.Mark
+
+                            }
+                            <br />
+                        }
+                    </td>
+                    <td>
+                        <div class="btn_edit">
+                            @Html.ActionLink("Edit", "Edit", "Groups", new { id = groups.id, DepId = Model.Id })
+                        </div>
+                        <div class="btn_danger">
+                            @Html.ActionLink("Delete", "Delete", "Groups", new { id = groups.id, DepId = Model.Id })
+                        </div>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Show", "GroupsEmployee", "Departments", new { GroupId = groups.id, DepId = Model.Id })
+
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+    <tfoot class="full-width">
+        <tr>
+            <th colspan="4">
+                <div class="ui right floated small">
+                    @using (Html.BeginForm("Create", "Groups", FormMethod.Get))
+                    {
+                        <input type="hidden" Id="DepId" name="DepId" value="@Model.Id">
+                        <button type="submit" class="btn_create">Create New</button>
+                        <div class="btn">
+                            @Html.ActionLink("Export to Excel", "Excel", "Groups", new { DepId = Model.Id })
+                        </div>
+                    }
+                </div>
+            </th>
+        </tr>
+    </tfoot>
+</table>
