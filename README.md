@@ -24,9 +24,7 @@
 * dotnet run
 3) After that application will start
 ## How to use:
-
-
-
+I didn't have time to finish writing in the near future everything will be
 ## Architecture: 
 1) The project create with ASP.NET Core 3.1 MVC and using language C#.
 2) The project uses Microsoft.EntityFrameworkCore 5.0.10
